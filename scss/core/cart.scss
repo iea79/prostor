@@ -1,0 +1,47 @@
+.cart {
+    display: block;
+    position: relative;
+    text-decoration: none;
+
+    &__btn {
+        color: #fff;
+        background: #222222;
+        width: 3.1em;
+        height: 3.1em;
+        border: 1px solid #222222;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.3s;
+        transition-property: background color;
+
+        @media (min-width: 768px) {
+            width: 2.75em;
+            height: 2.75em;
+        }
+
+        &:hover {
+            background-color: transparent;
+            color: #222222;
+        }
+    }
+
+    &__counter {
+        width: 0.8125em;
+        height: 0.8125em;
+        border-radius: 50%;
+        background: #00AFED;
+        display: block;
+        overflow: hidden;
+        color: #00AFED;
+        position: absolute;
+        right: -0.2em;
+        top: -0.2em;
+    }
+
+    .icon_cart {
+        font-size: 1.5em;
+        display: block;
+        margin-left: -.1em;
+    }
+}

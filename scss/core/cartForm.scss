@@ -1,0 +1,15 @@
+.cartForm {
+    display: flex;
+
+    .single-product & {
+        max-width: 16em;
+    }
+
+    .btn {
+        padding: 0.94em;
+        text-transform: uppercase;
+        flex-grow: 1;
+        min-width: 0;
+        font-weight: 600;
+    }
+}

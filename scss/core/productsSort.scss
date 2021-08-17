@@ -1,0 +1,106 @@
+.productsSort {
+    margin-top: 0.4em;
+    display: flex;
+    align-items: baseline;
+    font-size: 1em;
+    font-weight: 400;
+    color: #222222;
+    margin-bottom: 1.6em;
+    // padding-bottom: 0.6em;
+
+    &__label {
+        margin-right: 0.6em;
+
+        @media (min-width: 768px) {
+            margin-right: 1.6em;
+        }
+    }
+
+    &__list {
+        position: relative;
+        padding-bottom: 0.6em;
+    }
+
+    &__current {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        &:before {
+            content: $icon_angel;
+            font-family: 'prostor';
+            order: 10;
+            font-size: 0.6em;
+            margin-left: 1em;
+        }
+
+        &:after {
+            font-family: 'prostor';
+            margin-left: 0.4em;
+            font-size: 1.3em;
+        }
+    }
+
+    &__drop {
+        position: absolute;
+        box-shadow: 0 15px 60px rgba(0, 0, 0, 0.05);
+        background: #fff;
+        white-space: nowrap;
+        right: 0;
+        min-width: 15em;
+        display: none;
+        top: 100%;
+        animation: fadeUp 0.5s;
+
+        .productsSort__list:hover & {
+            display: block;
+        }
+    }
+
+    &__link {
+        display: flex;
+        align-items: center;
+        color: #7A7A7A;
+        font-weight: 300;
+        font-size: 1em;
+        text-decoration: none;
+        padding: 0.7em 2.3em;
+        border-bottom: 1px solid #EEEDED;
+
+        &:hover {
+            background-color: #EEEDED;
+        }
+
+        &:last-child {
+            border-bottom: 0;
+        }
+
+        &:after {
+            content: '';
+            font-family: 'prostor';
+            margin-left: 0.6em;
+            font-size: 1.2em;
+            font-weight: 400;
+        }
+    }
+
+    .menu_order {}
+
+    .price {
+        &:after {
+            content: $icon_sort-up;
+
+        }
+    }
+
+    .price-desc {
+        &:after {
+            content: $icon_sort-down;
+        }
+    }
+
+    .popularity {}
+
+    .date {}
+
+}

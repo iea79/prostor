@@ -1,0 +1,132 @@
+$icomoon-font-family: "prostor" !default;
+$icomoon-font-path: "fonts" !default;
+
+$icon_zoom-slim: "\e90b";
+$icon_youtube: "\e90a";
+$icon_insta: "\e900";
+$icon_cart: "\e903";
+$icon_sort-down: "\e904";
+$icon_sort-up: "\e905";
+$icon_plus: "\e906";
+$icon_minus: "\e908";
+$icon_check: "\e909";
+$icon_chat: "\e901";
+$icon_hart: "\e902";
+$icon_angel: "\e907";
+$icon_zoom: "\e90c";
+$icon_next: "\e90d";
+$icon_prev: "\e90e";
+
+@font-face {
+    font-family: '#{$icomoon-font-family}';
+    src: url("#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?xpnk2f") format('truetype'), url("#{$icomoon-font-path}/#{$icomoon-font-family}.woff?xpnk2f") format('woff'), url("#{$icomoon-font-path}/#{$icomoon-font-family}.svg?xpnk2f##{$icomoon-font-family}") format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+[class^="icon_"],
+[class*=" icon_"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: '#{$icomoon-font-family}' !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon_zoom-slim {
+    &:before {
+        content: $icon_zoom-slim;
+    }
+}
+
+.icon_youtube {
+    &:before {
+        content: $icon_youtube;
+    }
+}
+
+.icon_insta {
+    &:before {
+        content: $icon_insta;
+    }
+}
+
+.icon_cart {
+    &:before {
+        content: $icon_cart;
+    }
+}
+
+.icon_sort-down {
+    &:before {
+        content: $icon_sort-down;
+    }
+}
+
+.icon_sort-up {
+    &:before {
+        content: $icon_sort-up;
+    }
+}
+
+.icon_plus {
+    &:before {
+        content: $icon_plus;
+    }
+}
+
+.icon_minus {
+    &:before {
+        content: $icon_minus;
+    }
+}
+
+.icon_check {
+    &:before {
+        content: $icon_check;
+    }
+}
+
+.icon_chat {
+    &:before {
+        content: $icon_chat;
+    }
+}
+
+.icon_hart {
+    &:before {
+        content: $icon_hart;
+    }
+}
+
+.icon_angel {
+    &:before {
+        content: $icon_angel;
+    }
+}
+
+.icon_zoom {
+    &:before {
+        content: $icon_zoom;
+    }
+}
+
+.icon_next {
+    &:before {
+        content: $icon_next;
+    }
+}
+
+.icon_prev {
+    &:before {
+        content: $icon_prev;
+    }
+}

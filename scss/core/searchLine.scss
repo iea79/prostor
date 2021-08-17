@@ -1,0 +1,19 @@
+.searchLine {
+    background: url("img/searchLine-bg.jpg") 0 0 no-repeat;
+    background-size: cover;
+    padding: 4.4em 0;
+
+    @media (min-width: 768px) {
+        padding: 6.3em 0;
+    }
+
+    @media (max-width: 767px) {
+        .search {
+            flex-direction: column;
+
+            .btn {
+                margin-top: 0.1em;
+            }
+        }
+    }
+}

@@ -1,0 +1,21 @@
+.popularLine {
+    padding: 4em 0 3em;
+
+    @media (min-width: 768px) {
+        padding: 6.25em 0;
+    }
+
+    @media (max-width: 767px) {
+        .slick-track {
+            display: flex;
+
+            .product {
+                margin-right: 1.2em;
+            }
+        }
+
+        .slidersArrow {
+            margin-top: 0;
+        }
+    }
+}

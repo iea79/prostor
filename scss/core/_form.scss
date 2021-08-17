@@ -1,0 +1,427 @@
+.form,
+.woocommerce form {
+	&__row,
+	.form-row {
+		padding: 0;
+		margin: 0 0 1.25em;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		.btn,
+		input:not([type]),
+		input[type=datetime],
+		input[type=email],
+		input[type=number],
+		input[type=password],
+		input[type=search],
+		input[type=tel],
+		input[type=text],
+		input[type=url],
+		textarea {
+			width: 100%;
+		}
+
+		textarea {
+			resize: vertical;
+			min-height: 6.875em;
+		}
+
+		.required {
+			color: #00AFED;
+		}
+	}
+
+	&__label,
+	label {
+		color: #9D9D9D;
+		display: block;
+		font-size: 0.8em;
+		font-weight: 400;
+		margin-bottom: 0.3em;
+	}
+
+	&__inline {
+		display: flex;
+
+		.wpcf7-form-control-wrap {
+			display: flex;
+
+			&:first-child {
+				flex-grow: 1;
+				min-width: 0;
+			}
+
+			&:last-child {
+				flex: none;
+			}
+		}
+	}
+
+	&__privacy {
+		color: #9D9D9D;
+		font-size: 0.8em;
+		margin-bottom: 1.25em;
+
+		a {
+			color: #00AFED;
+			text-decoration: none;
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+
+	&__action {
+		.btn {
+			width: 100%;
+			text-transform: uppercase;
+			font-weight: 500;
+		}
+	}
+
+	&__upload {
+		position: relative;
+		// max-width: 21em;
+
+		.formUpload & {
+			input[type=file] {
+				position: absolute;
+				opacity: 0;
+			}
+		}
+
+		span {
+			position: relative;
+		}
+	}
+
+	fieldset {
+		border: 0;
+	}
+
+	&__message {
+		font-size: 1.2em;
+		font-weight: 700;
+		line-height: 1.2;
+		padding-bottom: 1em;
+		margin-bottom: 1em;
+		border-bottom: 1px solid #eee;
+
+		@media (min-width: 768px) {
+			font-size: 1.5em;
+		}
+	}
+
+}
+
+.formPost {
+
+	@media (min-width: 768px) {
+		display: flex;
+		flex-wrap: wrap;
+		margin-left: -1.88em;
+	}
+
+	.form__row {
+		margin-bottom: 1.88em;
+
+		@media (min-width: 768px) {
+			padding-left: 1.88em;
+			width: 100%;
+
+		}
+	}
+
+	@media (min-width: 768px) {
+		.usp-title {
+			width: 50%;
+		}
+
+		.usp-email {
+			width: 50%;
+		}
+	}
+
+	.usp-submit {}
+
+	.usp-js {
+		font-size: 0.75em;
+	}
+
+	.btn {
+		font-weight: 700;
+		text-transform: uppercase;
+
+		@media (min-width: 768px) {
+			width: auto;
+		}
+	}
+}
+
+.wpcf7-not-valid-tip {
+	font-size: 0.7em;
+}
+// Input text and textarea ================================================
+
+.woocommerce form input:not([type]),
+.woocommerce form input[type=datetime],
+.woocommerce form input[type=email],
+.woocommerce form input[type=number],
+.woocommerce form input[type=password],
+.woocommerce form input[type=search],
+.woocommerce form input[type=tel],
+.woocommerce form input[type=text],
+.woocommerce form input[type=url],
+.woocommerce form textarea,
+input:not([type]),
+input[type=datetime],
+input[type=email],
+input[type=number],
+input[type=password],
+input[type=search],
+input[type=tel],
+input[type=text],
+input[type=url],
+textarea {
+	background-color: $color_withe;
+	border: 1px solid $input_border_color;
+	padding: 0.815em 1.2em;
+	outline: none;
+	font-size: 1em;
+	font-weight: 300;
+	font-family: $main_font_family;
+	border-radius: 0;
+	transition: all 0.3s;
+
+	.form & {
+		background-color: $input_bg_color;
+
+		&:hover {
+			border: 1px solid $input_hover_border_color;
+			background-color: $input_hover_bg_color;
+		}
+
+		&:focus {
+			border: 1px solid $input_focus_border_color;
+			background-color: $input_focus_bg_color;
+		}
+
+		&.invalid {
+			background-color: #fff0f0;
+			border: 1px solid red;
+		}
+	}
+
+	// Placeholder for input +++++++++++++++
+	@include placeholder {
+		color: #ddd;
+	}
+}
+
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-decoration {
+	-webkit-appearance: none;
+}
+
+/* Для Chrome */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+	height: auto;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	margin: 0;
+}
+/* Для Firefox */
+input[type=number] {
+	-moz-appearance: textfield;
+}
+
+// Input checkbox and radio ===============================================
+input[type=checkbox],
+input[type=radio] {
+	padding: 0;
+	display: inline-flex;
+	flex: none;
+	align-items: center;
+	justify-content: center;
+	height: 1.2em;
+	width: 1.2em;
+	border: 1px solid #00AFED;
+	overflow: hidden;
+	margin-top: -0.2em;
+	margin-right: 0.2em;
+	vertical-align: middle;
+	-webkit-appearance: none;
+	outline: 0;
+	background: 0 0;
+	text-align: center;
+	position: relative;
+	flex: none;
+
+	&:not(:disabled),
+	&:not(:disabled) {
+		cursor: pointer;
+	}
+
+	&:before,
+	&:before {
+		display: block;
+		color: #00AFED;
+	}
+
+	&:disabled,
+	&:disabled {
+		border-color: #ddd;
+	}
+}
+
+input[type=radio] {
+	border-radius: 50%;
+
+	&:checked:before {
+		content: '';
+		width: 0.5em;
+		height: 0.5em;
+		display: block;
+		position: absolute;
+		border-radius: 50%;
+		background: #00AFED;
+	}
+
+	&:disabled:checked:before {
+		background-color: #aaa;
+	}
+}
+
+input[type=checkbox] {
+	&:checked:before,
+	&:indeterminate:before {
+		font-family: 'prostor';
+		content: $icon_check;
+		font-size: 0.5em;
+	}
+
+	&:indeterminate:before {
+		content: "\f068";
+	}
+
+	&:disabled:checked:before,
+	&:disabled:indeterminate:before {
+		color: #aaa;
+	}
+}
+
+.select2 {
+	&-hidden-accessible {
+		display: none;
+	}
+
+	&-search__field {
+		display: none;
+	}
+
+	&-container {
+		span {
+			display: block;
+		}
+
+		.form__row & {
+			width: 100% !important;
+			// display: block;
+		}
+
+		&--open {
+			z-index: 1050;
+		}
+
+		&--default {
+			.select2 {
+				&-results {
+					&__options {
+						list-style: none;
+						padding: 8px 0;
+						margin: 0;
+					}
+
+					&__option {
+						padding: 10px 25px;
+						cursor: pointer;
+
+						&--highlighted[aria-selected] {
+							background-color: rgba(#000, .1);
+						}
+					}
+				}
+
+				&-dropdown {
+					position: absolute;
+					// z-index: 150;
+					background-color: #fff;
+					border-radius: 0;
+					margin-top: -1px;
+					box-shadow: 0 1px 10px rgba(#000, .1);
+					border: 1px solid $input_border_color;
+
+					&--below {}
+
+					&--above {}
+				}
+
+				&-selection {
+
+					background-color: $color_withe;
+					border: 1px solid $input_border_color;
+					padding: 0.815em 1.2em;
+					outline: none;
+					font-size: 1em;
+					font-weight: 300;
+					font-family: $main_font_family;
+					border-radius: 0;
+					transition: all 0.3s;
+					height: auto;
+
+					.form & {
+						background-color: $input_bg_color;
+
+						&:hover {
+							border: 1px solid $input_hover_border_color;
+							background-color: $input_hover_bg_color;
+						}
+
+						&:focus {
+							border: 1px solid $input_focus_border_color;
+							background-color: $input_focus_bg_color;
+						}
+
+						&.invalid {
+							background-color: #fff0f0;
+							border: 1px solid red;
+						}
+					}
+
+					&--single {
+						.select2 {
+							&-selection {
+								&__rendered {
+									line-height: 1.2;
+									padding: 0 1.7em 0 0;
+								}
+
+								&__placeholder {}
+
+								&__arrow {
+									height: 100%;
+									width: 1.5em;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

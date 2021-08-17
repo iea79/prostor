@@ -1,0 +1,13 @@
+.custom-logo-link {
+    max-width: 10.4em;
+    display: block;
+
+    @media (min-width: 768px) {
+        max-width: 9.19em;
+    }
+
+    img {
+        height: auto;
+        width: 100%;
+    }
+}

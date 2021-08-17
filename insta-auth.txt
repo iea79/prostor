@@ -1,0 +1,9 @@
+IGQVJYTDA5R2FNVE41UXdlN3puUFg5aFh0NDJSbHQ1RGg0b2VDQlBodk83c3Q3Y3dJQjZAxYk5XQnJXd2NRZAEJSbDQ2UGNIdVRNMldJbmhZAMEMwWXB1bVZADR2pxUGdpdFlrQ3ZAPN0dfQXNWamVjRDlmTgZDZD
+
+curl -X POST \
+  https://api.instagram.com/oauth/access_token \
+  -F client_id=843089596600936 \
+  -F client_secret=0177cc4067f64197fde708218cc49a14 \
+  -F grant_type=authorization_code \
+  -F redirect_uri=http://prostor.frontendie.ru/ \
+  -F code=IGQVJYTDA5R2FNVE41UXdlN3puUFg5aFh0NDJSbHQ1RGg0b2VDQlBodk83c3Q3Y3dJQjZAxYk5XQnJXd2NRZAEJSbDQ2UGNIdVRNMldJbmhZAMEMwWXB1bVZADR2pxUGdpdFlrQ3ZAPN0dfQXNWamVjRDlmTgZDZD

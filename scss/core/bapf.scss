@@ -1,0 +1,129 @@
+.bapf {
+    &_sfilter {
+        margin: 0;
+
+        @media (max-width: 767px) {
+            margin: 0 0 2em;
+            box-shadow: 0 15px 60px rgba(0, 0, 0, 0.05);
+            border: 2px solid #2E2E2E;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            font-size: 1em;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+
+            li {
+                margin-bottom: 0.75em !important;
+                color: #2E2E2E;
+                display: inline-flex;
+                flex-wrap: wrap;
+                cursor: pointer;
+                line-height: 1;
+
+                > ul {
+                    width: 100%;
+                    margin-top: 0.8em;
+                }
+
+                input {
+                    display: none;
+
+                    &[data-name="Ремонт"][value="26"],
+                    &[data-name="Запчасти"] {
+                        + label {
+                            display: none !important;
+
+                            .woocommerce-shop & {
+                                display: block !important;
+                            }
+                        }
+                    }
+
+                    &:checked {
+                        + label {
+                            background: rgba(0, 175, 237, 0.19);
+                            border-radius: 3px;
+                            padding: 0.35em 0.5em;
+
+                            &:after {
+                                content: $icon_plus;
+                                font-family: 'prostor';
+                                transform: rotate(45deg);
+                                font-size: 0.6em;
+                                margin-left: 0.3em;
+                                margin-top: 0.3em;
+                            }
+                        }
+                    }
+                }
+
+                label {
+                    display: flex !important;
+                    align-items: center;
+                    padding: 0.35em 0;
+                    transition: 0.3s;
+                    background-color: transparent;
+                    transition-property: padding background;
+
+                }
+            }
+        }
+    }
+
+    &_ckbox {}
+
+    &_head {
+        // display: none;
+        line-height: 1.2;
+        font-size: 1.3em;
+        margin-bottom: 0.72em;
+        color: #2E2E2E;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.7em 0.7em 0.2em;
+
+        @media (min-width: 768px) {
+            padding: 0;
+            font-size: 1.5em;
+            justify-content: flex-start;
+        }
+
+        @media (max-width: 767px) {
+            &:after {
+                content: $icon_angel;
+                font-family: 'prostor';
+                font-size: 0.8em;
+                margin-left: 0.5em;
+            }
+        }
+
+        h3 {
+            margin: 0;
+            font-size: 1em;
+            font-weight: 500;
+            text-transform: uppercase;
+
+            @media (min-width: 768px) {
+                text-transform: none;
+            }
+        }
+    }
+
+    &_body {
+        @media (max-width: 767px) {
+            display: none;
+            padding: 0 1.3em;
+            // border-top: 2px solid #2E2E2E;
+
+            &.open {
+                display: block;
+            }
+        }
+    }
+}
