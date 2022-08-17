@@ -8,7 +8,7 @@
             foreach ($mainSlider as $item) {
                 echo '
                 <div class="mainSlider__item" data-slide-img="'.$imgIndex.'">
-                    <img src="'.wp_get_attachment_url($item['mainSlider__img']).'" alt="">
+                    '.wp_get_attachment_image($item['mainSlider__img'], "full").'
                 </div>
                 ';
                 $imgIndex++;
@@ -27,7 +27,7 @@
 
                     foreach ($mainScreen__action as $item) {
                         echo '
-                        <a href="'.get_category_link($item['mainScreen__action_link'][0]).'" class="btn '.$item['mainScreen__action_color'].'">'.$item['mainScreen__action_text'].'</a>
+                        <a href="#" class="btn '.$item['mainScreen__action_color'].'">'.$item['mainScreen__action_text'].'</a>
                         ';
                     };
                 ?>

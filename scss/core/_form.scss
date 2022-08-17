@@ -128,6 +128,10 @@
 	.form__row {
 		margin-bottom: 1.88em;
 
+		&_sm {
+			max-width: 18.75em;
+		}
+
 		@media (min-width: 768px) {
 			padding-left: 1.88em;
 			width: 100%;
@@ -339,6 +343,8 @@ input[type=checkbox] {
 		}
 
 		&--default {
+			display: block;
+
 			.select2 {
 				&-results {
 					&__options {

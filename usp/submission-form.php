@@ -74,12 +74,6 @@ else :
 			<label for="user-submitted-custom"><?php echo esc_html($usp_custom_label); ?></label>
 			<input id="user-submitted-custom" name="<?php echo esc_attr($usp_custom_name); ?>" type="text" value="" placeholder="<?php echo esc_attr($usp_custom_label); ?>"<?php if (usp_check_required('custom_field')) echo $usp_required; ?> class="usp-input">
 		</fieldset>
-		<?php } if ($usp_options['usp_captcha'] == 'show') { ?>
-
-		<fieldset class="usp-captcha form__row">
-			<label for="user-submitted-captcha"><?php echo $usp_options['usp_question']; ?></label>
-			<input id="user-submitted-captcha" name="user-submitted-captcha" type="text" value="" placeholder="<?php esc_attr_e('Antispam Question', 'usp'); ?>"<?php echo $usp_required; ?> class="usp-input<?php echo $usp_captcha; ?>" data-parsley-excluded="true">
-		</fieldset>
 		<?php } if (($usp_options['usp_category'] == 'show' || $usp_options['usp_category'] == 'optn') && ($usp_options['usp_use_cat'] == false)) { ?>
 
 		<fieldset class="usp-category form__row">
@@ -173,6 +167,13 @@ else :
 
 		<?php echo usp_display_custom_checkbox(); ?>
 
+		<?php if ($usp_options['usp_captcha'] == 'show') { ?>
+
+			<fieldset class="usp-captcha form__row form__row_sm">
+				<label for="user-submitted-captcha"><?php echo $usp_options['usp_question']; ?></label>
+				<input id="user-submitted-captcha" name="user-submitted-captcha" type="text" value="" placeholder="Введите ответ"<?php echo $usp_required; ?> class="usp-input<?php echo $usp_captcha; ?>" data-parsley-excluded="true">
+			</fieldset>
+		<?php } ?>
 		<div id="usp-submit" class="form__row usp-submit">
 			<?php if (isset($usp_options['redirect-url']) && !empty($usp_options['redirect-url'])) { ?>
 

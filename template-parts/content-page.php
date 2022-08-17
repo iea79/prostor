@@ -129,8 +129,8 @@ if (is_front_page()) {
 			<section id="ourPhoto" class="ourPhoto">
 				<div class="container_center">
 					<div class="inlineHeader">
-		                <h2 class="section__title">Наши <b>фотографии</h2>
-		                <div class="inlineHeader__right">
+		                <h2 class="section__title">Наши <b>фотографии</b></h2>
+		                <div class="inlineHeader__right desktop">
 		                    <a href="<?php echo $socials[1]['socials_link'] ?>" target="_blank" class="videoLine__channel">
 		                        Ещё больше в нашем
 		                        <span>
@@ -140,7 +140,27 @@ if (is_front_page()) {
 		                </div>
 		            </div>
 					<div class="ourPhoto__list">
+						<?php
+							$insta_list = SCF::get_option_meta( 'ours-photo', 'insta_list');
+							// var_dump($insta_list);
 
+							foreach ($insta_list as $item) {
+								?>
+								<a href="<?php echo $item['insta_link'] ?>" class="ourPhoto__item" target="_blank">
+									<span class="ourPhoto__img"><?php echo wp_get_attachment_image($item[ 'insta_photo' ],'full') ?></span>
+									<span class="ourPhoto__text"><?php echo $item['insta_text'] ?></span>
+								</a>
+								<?php
+							};
+						?>
+					</div>
+					<div class="mobile">
+						<a href="<?php echo $socials[1]['socials_link'] ?>" target="_blank" class="videoLine__channel">
+							Ещё больше в нашем
+							<span>
+								<img src="<?php echo get_template_directory_uri() . '/img/instagram.svg' ?>" alt="">
+							</span>
+						</a>
 					</div>
 				</div>
 			</section>

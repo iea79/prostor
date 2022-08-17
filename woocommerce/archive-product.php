@@ -30,13 +30,12 @@ do_action( 'woocommerce_before_main_content' );
 
 ?>
 <header class="woocommerce-products-header">
-	<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
-		<!-- <?php if (woocommerce_page_title() === "Запчасти"): ?> -->
-		<!-- <?php endif; ?> -->
 		<?php
+
 		if( is_product_category( 'zapchasti' ) ) {
 			?>
 			<h1 class="page__title">Каталог <b>запчастей</b></h1>
+
 			<?php
 		}
 		elseif ( is_product_category( 'remont' ) ) {
@@ -49,7 +48,6 @@ do_action( 'woocommerce_before_main_content' );
 			<?php
 		}
 		 ?>
-	<?php endif; ?>
 
 	<?php
 	/**
@@ -99,6 +97,7 @@ if ( woocommerce_product_loop() ) {
 				if ( wc_get_loop_prop( 'total' ) ) {
 					while ( have_posts() ) {
 						the_post();
+						// get_price();
 
 						/**
 						* Hook: woocommerce_shop_loop.
@@ -121,19 +120,33 @@ if ( woocommerce_product_loop() ) {
 				?>
 			</div>
 			<div class="productsPage__aside">
-				<div class="productsFilter">
-					<!-- <div class="productsFilter__title">Бренды</div> -->
-					<?php
-					/**
-					 * Hook: woocommerce_sidebar.
-					 *
-					 * @hooked woocommerce_get_sidebar - 10
-					 */
-
-					do_action( 'woocommerce_sidebar' );
-					?>
-				</div>
+				<?php // do_action( 'woocommerce_sidebar' ); ?>
 				<?php
+				if ( is_shop() ) {
+					?>
+						<!-- <div class="productsFilter"> -->
+							<?php
+								// echo do_shortcode( '[br_filter_single filter_id=299]' );
+							?>
+						<!-- </div> -->
+					<?php
+				}
+				if (is_product_category()) {
+					?>
+						<!-- <div class="productsFilter"> -->
+							<?php
+							if( is_product_category( 'zapchasti' ) ) {
+								// Запчасти
+								// echo do_shortcode( '[br_filter_single filter_id=297]' );
+							}
+							if( is_product_category( 'remont' ) ) {
+								// Запчасти
+								// echo do_shortcode( '[br_filter_single filter_id=298]' );
+							}
+							?>
+						<!-- </div> -->
+					<?php
+				}
 				require get_template_directory() . '/inc/haveQuestion.php';
 
 				require get_template_directory() . '/inc/actionBanner.php';
@@ -168,8 +181,67 @@ require get_template_directory() . '/inc/brandsLine.php';
 		<h2 class="section__title">Популярные <b>товары</b></h2>
 
 		<?php
-		echo do_shortcode( '[top_rated_products per_page="4" columns="4"] ' );
-		?>
+		$loop = new WP_Query( array(
+			'post_type' => 'product',
+			'posts_per_page' => 4,
+			'orderby' => 'rand',
+			'order' => 'DESC',
+		));
+		if ($loop) {
+			?>
+			<ul class="woocommerce popularProduct">
+				<?php
+
+					while ( $loop->have_posts() ): $loop->the_post(); ?>
+						<?php
+							// $img = the_post_thumbnail();
+							// if (!$img) {
+							// 	$img = wp_get_attachment_image(256, 'full');
+							// }
+						 ?>
+						<li <?php post_class("product"); ?>>
+							<a href="<?php the_permalink(); ?>" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+								<span class="woocommerce-loop-product__img">
+									<?php
+									if (has_post_thumbnail()) {
+										the_post_thumbnail(array(250, 240));
+									} else {
+										echo wp_get_attachment_image(256, 'full');
+									}
+									?>
+								</span>
+								<h2 class="woocommerce-loop-product__title"><?php the_title(); ?></h2>
+								<?php woocommerce_template_loop_price(); ?>
+							</a>
+							<?php woocommerce_template_loop_add_to_cart(); ?>
+						</li>
+						<!-- <div <?php post_class("inloop-product"); ?>>
+							<div class="row">
+								<div class="col-sm-4">
+									<?php the_post_thumbnail("thumbnail-215x300"); ?>
+								</div>
+								<div class="col-sm-8">
+									<h4>
+										<a href="<?php the_permalink(); ?>">
+											<?php the_title(); ?>
+										</a>
+									</h4>
+									<?php the_content(); ?>
+									<p class="price">
+										<?php _e("Price:","examp"); ?>
+										<?php woocommerce_template_loop_price(); ?>
+									</p>
+									<?php woocommerce_template_loop_add_to_cart(); ?>
+								</div>
+							</div>
+						</div> -->
+				<?php endwhile; ?>
+				</ul>
+			<?php
+		}
+		 ?>
+
+
 		<div class="slidersArrow mobile">
 			<button class="slick-arrow slick-prev products__prev"></button>
 			<button class="slick-arrow slick-next products__next"></button>

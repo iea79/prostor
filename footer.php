@@ -74,6 +74,7 @@ $siteSettings = SCF::get_option_meta( 'site-settings' );
 	</footer><!-- #colophon -->
 
 	<div class="searchPopup">
+		<div class="searchPopup__overlay"></div>
 		<div class="searchPopup__wrap">
 			<div class="searchPopup__close">
 				<i class="icon_plus"></i>

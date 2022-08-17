@@ -9,7 +9,7 @@
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.0.1' );
+	define( '_S_VERSION', '1.2.1' );
 }
 
 if ( ! function_exists( 'frondendie_setup' ) ) :
@@ -204,7 +204,8 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 add_action( 'init', function () {
 	SCF::add_options_page( 'Популярные категории', 'Популярные категории', 'manage_options', 'popular-cats', 'dashicons-megaphone', 21 );
 	SCF::add_options_page( 'Наши видео', 'Наши видео', 'manage_options', 'ours-video', 'dashicons-video-alt3', 22 );
-	SCF::add_options_page( 'О нас', 'О нас', 'manage_options', 'about-us', 'dashicons-format-status', 23 );
+	SCF::add_options_page( 'Наши фото', 'Наши фото', 'manage_options', 'ours-photo', 'dashicons-format-gallery', 23 );
+	SCF::add_options_page( 'О нас', 'О нас', 'manage_options', 'about-us', 'dashicons-format-status', 24 );
 	SCF::add_options_page( 'Настройки сайта', 'Настройки сайта', 'manage_options', 'site-settings', '', 51 );
 } );
 
@@ -350,7 +351,7 @@ if (is_admin()) {
 			// __('Pages'),
 			// __('Appearance'),
 			__('Tools'),
-			__('Users'),
+			// __('Users'),
 			// __('Settings'),
 			__('Comments'),
 			__('BeRocket'),
@@ -405,3 +406,15 @@ add_filter( 'excerpt_length', function(){
 add_filter('excerpt_more', function($more) {
 	return '';
 });
+
+
+
+// Disable all update
+// remove_action('load-update-core.php','wp_update_themes');
+// add_filter('pre_site_transient_update_themes',create_function('$a', "return null;"));
+// wp_clear_scheduled_hook('wp_update_themes');
+// remove_action( 'load-update-core.php', 'wp_update_plugins' );
+// add_filter( 'pre_site_transient_update_plugins', create_function( '$a', "return null;" ) );
+// wp_clear_scheduled_hook( 'wp_update_plugins' );
+// add_filter('pre_site_transient_update_core',create_function('$a', "return null;"));
+// wp_clear_scheduled_hook('wp_version_check');

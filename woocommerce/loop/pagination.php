@@ -42,8 +42,8 @@ if ( $total <= 1 ) {
 				'prev_text' => '',
 				'next_text' => '',
 				'type'      => 'list',
-				'end_size'  => 3,
-				'mid_size'  => 3,
+				'end_size'  => 2,
+				'mid_size'  => 2,
 			)
 		)
 	);

@@ -52,6 +52,14 @@ $(document).ready(function() {
         // autoplay: true,
     });
 
+    $('.instaBox').slick({
+        dots: true,
+        arrows: false,
+        autoplay: true,
+        autoplaySpeed: 8000,
+        pauseOnHover: true,
+    });
+
     // Inputmask.js
     // $('[name=tel]').inputmask("+9(999)999 99 99",{ showMaskOnHover: false });
     // formSubmit();
@@ -154,11 +162,23 @@ $(document).ready(function() {
         });
     }
 
+    $('.woocommerce-product-search').on('submit', () => {
+        showLoader();
+    });
+
+    $('[href*="https://"]:not([target="_blank"]), [href*="http://"]:not([target="_blank"]), [href*="/shop"]').on('click', () => {
+        showLoader();
+    });
+
 });
+
+function showLoader() {
+    $('body').append('<div class="page-loader"><div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div></div>');
+}
 
 function toggleHeaderSearch() {
     const open = $('.searchPopup__open'),
-          hide = $('.searchPopup__close'),
+          hide = $('.searchPopup__close, .searchPopup__overlay'),
           field = $('.searchPopup .search-field'),
           wrap = $('.searchPopup');
     open.on('click', () => {

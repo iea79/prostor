@@ -69,7 +69,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 										print_r($cart_item);
 									} else {
 										echo wp_kses_post( apply_filters( 'woocommerce_cart_item_name', sprintf( '<a href="%s">%s</a>', esc_url( $product_permalink ), $_product->get_name() ), $cart_item, $cart_item_key ) );
-										$sku = $cart_item['data']->get_sku();
+										$sku = substr($cart_item['data']->get_sku(), 3);
 										if(!empty($sku)) {
 											echo "<div class='cart_sku'><span>Артикул: </span>" . $sku . "</div>";
 										}
@@ -105,7 +105,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 										$_product,
 										false
 										);
-										echo $cart_item['quantity'] . " шт.";
+										// echo $cart_item['quantity'] . " шт.";
 										// echo $product_quantity;
 										// echo $cart_item_key;
 									}

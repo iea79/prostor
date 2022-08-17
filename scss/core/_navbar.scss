@@ -15,9 +15,16 @@
 		// display: inline-block;
 		padding-left: 1.88em;
 		margin-bottom: 1.5em;
+		position: relative;
 
 		@media (min-width: 768px) {
 			margin-bottom: 0;
+
+			&:hover {
+				.sub-menu {
+					display: block;
+				}
+			}
 		}
 
 		a {
@@ -95,6 +102,101 @@
 			}
 		}
 	}
+
+	&-item-has-children {
+		// display: none;
+	}
+}
+
+.sub-menu {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	background: #fff;
+	padding: 1.2em 0 0;
+	animation: fadeNav 0.4s;
+
+	.footer & {
+		display: none !important;
+	}
+
+	@media (min-width: 768px) {
+		position: absolute;
+		left: 0;
+		top: 100%;
+		z-index: 11;
+		display: none;
+		width: 300px;
+		padding: 1.5em 2em 1em;
+		white-space: nowrap;
+		box-shadow: 0 0.5em 0.5em rgba(#000, 0.1);
+	}
+
+	li {
+		padding-left: 0;
+		padding-bottom: 0.7em;
+		margin-bottom: 0.7em;
+		// border-bottom: 1px solid rgba(#000, 0.1);
+		position: relative;
+		display: flex;
+		align-items: center;
+
+		&:before {
+			content: '-';
+			display: inline-block;
+			margin-right: 0.8em;
+		}
+
+		@media (min-width: 768px) {
+			&:before {
+				display: none;
+			}
+
+			&:after {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				display: block;
+				height: 1px;
+				width: 0;
+				background: rgba(#000, 0.1);
+				transition: width 0.4s;
+			}
+
+			&:hover {
+				&:after {
+					width: 100%;
+				}
+			}
+		}
+
+		&:last-child {
+			// padding-bottom: 0;
+			margin-bottom: 0;
+			border-bottom: 0;
+		}
+	}
+
+	a {
+		text-decoration: none;
+		display: block;
+
+		&:hover {
+			@media (min-width: 768px) {
+				text-decoration: none;
+			}
+		}
+	}
+}
+
+@keyframes fadeNav {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
 }
 
 @media (max-width: 767px) {
@@ -107,7 +209,7 @@
 		width: 100%;
 		z-index: 11;
 		overflow: hidden;
-		padding: 2em 1.1em;
+		padding: 4em 1.1em 2em;
 		transition: left 0.3s;
 		overflow-y: auto;
 		// box-shadow: 0 0 1em rgba(#000, .1);
@@ -192,4 +294,8 @@
 		}
 
 	}
+}
+
+.archive.term-remont .productsPage__body .product .btn {
+	display: none;
 }

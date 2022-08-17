@@ -52,7 +52,7 @@ defined( 'ABSPATH' ) || exit;
 						<?php echo apply_filters( 'woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key ) . '&nbsp;'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 						<?php echo wc_get_formatted_cart_item_data( $cart_item ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 						<?php
-						$sku = $cart_item['data']->get_sku();
+						$sku = substr($cart_item['data']->get_sku(), 3);
 						if(!empty($sku)) {
 							// print_r($sku);
 							echo "<div class='cart_sku'><span>Артикул: </span>" . $sku . "</div>";

@@ -5,11 +5,13 @@
             <?php
             $prod_cat_args = array(
                 'number'      => 6,
+                'include' => '71,68,63,67,70,64',
+                'orderby' => 'include',
+                'order' => 'ASC',
                 'exclude'     => 16,
                 'taxonomy'    => 'product_cat',
-                'orderby'     => 'id', // здесь по какому полю сортировать
-                'hide_empty'  => false, // скрывать категории без товаров или нет
-                'parent'      => 25 // id родительской категории
+                'hide_empty'  => true, // скрывать категории без товаров или нет
+                'parent'      => 61, // id родительской категории
             );
 
             $woo_categories = get_categories( $prod_cat_args );
@@ -26,7 +28,7 @@
             ?>
         </div>
         <div class="brandsLine__more">
-            <a href="shop">Все бренды</a>
+            <a href="/shop/zapchasti">Все бренды</a>
         </div>
     </div>
 </div>

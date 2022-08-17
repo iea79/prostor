@@ -20,7 +20,7 @@ function setVideoLine($countItems = "3") {
             </div>
             <div class="videoLine__row">
                 <?php
-                $ourVideo = $popularCats = SCF::get_option_meta( 'ours-video', 'videoLine' );
+                $ourVideo = SCF::get_option_meta( 'ours-video', 'videoLine' );
                 $totalItemInPage = 0;
 
                 foreach ($ourVideo as $item) {
